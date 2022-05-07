@@ -7,7 +7,18 @@ function App() {
 
   const [theme, setTheme] = useState("theme1")
 
-
+  const handleThemes = () => {
+    if(theme === "theme1"){
+      setTheme("theme2")
+      console.log(theme)
+    }else if(theme === "theme2"){
+      setTheme("theme3")
+      console.log(theme)
+    }else if(theme === "theme3"){
+      setTheme("theme1")
+      console.log(theme)
+    }
+  }
 
   return (
     <AppContainer className={`App ${theme}`}>
@@ -22,7 +33,7 @@ function App() {
                 <span>2</span>
                 <span>3</span>
               </div>
-              <div className="slider-btn"></div>
+              <div className={`slider-btn ${theme}`} onClick={handleThemes}></div>
             </ThemeSlider>
           </ThemeToggler>
         </CalcHeader>
@@ -43,17 +54,28 @@ const AppContainer = styled.div`
 
   &.theme1{
     background-color: var(--theme1-bg);
+    color: var(--theme1-font-color);
+  }
+
+  &.theme2{
+    background-color: var(--theme2-bg);
+  }
+  
+  &.theme3{
+    background-color: var(--theme3-bg);
   }
 `
-
 const CalcContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   max-width: 540px;
   width: 100%;
-`
 
+  @media screen and (max-width: 576px){
+    padding: 20px;
+  }
+`
 const CalcHeader = styled.div`
   display: flex;
   justify-content: space-between;
@@ -88,8 +110,19 @@ const ThemeSlider = styled.div`
     }
   }
 
-  .slider-btn{
+  .theme1.slider-btn{
     background-color: var(--theme1-num-cont);
+  }
+
+  .theme2.slider-btn{
+    background-color: var(--theme2-num-cont);
+  }
+
+  .theme3.slider-btn{
+    background-color: var(--theme1-num-cont);
+  }
+
+  .slider-btn{
     border-radius: 20px;
     position: relative;
     width: 70px;
@@ -97,8 +130,6 @@ const ThemeSlider = styled.div`
     
     ::before{
       content: "";
-      background-color: var(--theme1-red-bg);
-      border: 1px solid var(--theme1-red-bg);
       border-radius: 50%;
       position: absolute;
       top: 50%;
@@ -106,6 +137,16 @@ const ThemeSlider = styled.div`
       transform: translateY(-50%);
       width: 15px;
       height: 15px;
+    }
+
+    &.theme1::before{
+      background-color: var(--theme1-red-bg);
+      border: 1px solid var(--theme1-red-bg);
+    }
+
+    &.theme2::before{
+      background-color: var(--theme2-orange-bg);
+      border: 1px solid var(--theme2-orange-bg);
     }
   }
 
