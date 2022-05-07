@@ -59,10 +59,12 @@ const AppContainer = styled.div`
 
   &.theme2{
     background-color: var(--theme2-bg);
+    color: var(--theme2-font-color);
   }
   
   &.theme3{
     background-color: var(--theme3-bg);
+    color: var(--theme3-font-color);
   }
 `
 const CalcContainer = styled.div`
@@ -103,7 +105,6 @@ const ThemeToggler = styled.div`
 `
 
 const ThemeSlider = styled.div`
-
   .themes{
     span{
       padding: 0 8px;
@@ -119,7 +120,7 @@ const ThemeSlider = styled.div`
   }
 
   .theme3.slider-btn{
-    background-color: var(--theme1-num-cont);
+    background-color: var(--theme3-num-cont);
   }
 
   .slider-btn{
@@ -140,14 +141,50 @@ const ThemeSlider = styled.div`
     }
 
     &.theme1::before{
+      animation-name: slide-theme-1;
+      animation-duration: 0.5s;
       background-color: var(--theme1-red-bg);
       border: 1px solid var(--theme1-red-bg);
     }
 
     &.theme2::before{
+      animation-name: slide-theme-2;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
       background-color: var(--theme2-orange-bg);
       border: 1px solid var(--theme2-orange-bg);
     }
+
+    &.theme3::before{
+      animation-name: slide-theme-3;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      background-color: var(--theme3-turquoise-bg);
+      border: 1px solid var(--theme3-turquoise-bg);
+      left: 25px;
+    }
   }
 
+  /* Toggle Animations */
+
+  @keyframes slide-theme-1{
+    0%{
+        left: 45px; 
+    }
+    100%{
+        left: 5px;
+    }
+  }
+
+  @keyframes slide-theme-2{
+    100%{
+       left: 25px; 
+    }
+  }
+
+  @keyframes slide-theme-3{
+    100%{
+       left:45px; 
+    }
+  }
 `

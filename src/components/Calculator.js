@@ -42,7 +42,6 @@ export default function Calculator({theme}) {
   }
 
   const total = () => {
-    console.log(calc)
     if(calc.includes("+")){
       add()
     }else if(calc.includes("-")){
@@ -100,12 +99,16 @@ const CalcDisplay = styled.div`
     background-color: var(--theme2-display);
   }
 
+  &.display.theme3{
+    background-color: var(--theme3-display);
+  }
+
   border-radius: 10px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  font-size: 2.5em;
+  font-size: 3em;
   letter-spacing: 0.1em;
   padding: 30px;
   height: 125px;
@@ -126,6 +129,10 @@ const CalcNumContainer = styled.div`
 
   &.theme2{
     background-color: var(--theme2-num-cont);
+  }
+
+  &.theme3{
+    background-color: var(--theme3-num-cont);
   }
   
   @media screen and (max-width: 576px){
@@ -150,6 +157,12 @@ const CalcNums = styled.div`
     background-color: var(--theme2-main-key-bg);
     box-shadow: 0 5px 0 var(--theme2-main-key-shadow); 
     color: var(--theme2-btn-text);
+  }
+
+  .theme3 .btn{
+    background-color: var(--theme3-main-key-bg);
+    box-shadow: 0 5px 0 var(--theme3-main-key-shadow); 
+    color: var(--theme3-btn-text);
   }
  
   .btn{
@@ -179,7 +192,14 @@ const CalcNums = styled.div`
     .theme2 .reset-btn{
       background-color: var(--theme2-teal-bg);
       box-shadow: 0 5px 0 var(--theme2-teal-shadow);
-      color: var(--theme2-main-key-bg);
+      color: #fff;
+    }
+
+    .theme3 .del-btn,
+    .theme3 .reset-btn{
+      background-color: var(--theme3-purple-bg);
+      box-shadow: 0 5px 0 var(--theme3-purple-shadow);
+      color: #fff;
     }
 
     .del-btn,
@@ -203,7 +223,6 @@ const CalcNums = styled.div`
       .reset-btn{
         border: none;
         border-radius: 10px;
-        color: var(--theme1-main-key-bg);
         box-sizing: border-box;
         display: flex;
         align-items: center;
@@ -217,11 +236,18 @@ const CalcNums = styled.div`
       .theme1 .equal-btn{
         background-color: var(--theme1-red-bg);
         box-shadow: 0 5px 0 var(--theme1-red-shadow);
+        color: var(--theme1-main-key-bg);
       }
 
       .theme2 .equal-btn{
         background-color: var(--theme2-orange-bg);
         box-shadow: 0 5px 0 var(--theme2-orange-shadow);
+        color: #fff;
+      }
+
+      .theme3 .equal-btn{
+        background-color: var(--theme3-turquoise-bg);
+        box-shadow: 0 5px 0 var(--theme3-turquoise-shadow);
       }
       
       .equal-btn{
