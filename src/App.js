@@ -103,7 +103,6 @@ const ThemeToggler = styled.div`
     text-transform: uppercase;
   }
 `
-
 const ThemeSlider = styled.div`
   .themes{
     span{
@@ -128,7 +127,7 @@ const ThemeSlider = styled.div`
     position: relative;
     width: 70px;
     height: 25px;
-    
+
     ::before{
       content: "";
       border-radius: 50%;
@@ -139,7 +138,7 @@ const ThemeSlider = styled.div`
       width: 15px;
       height: 15px;
     }
-
+    
     &.theme1::before{
       animation-name: slide-theme-1;
       animation-duration: 0.5s;
@@ -162,6 +161,10 @@ const ThemeSlider = styled.div`
       background-color: var(--theme3-turquoise-bg);
       border: 1px solid var(--theme3-turquoise-bg);
       left: 25px;
+    }
+
+    :hover{
+      cursor: pointer;
     }
   }
 
